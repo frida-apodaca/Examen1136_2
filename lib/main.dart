@@ -1,43 +1,33 @@
+import 'dart:ui';
+import 'package:examen1136/pagina_Container.dart';
+import 'package:examen1136/pagina_DrawerHeader.dart';
+import 'package:examen1136/pagina_TabBar.dart';
+import 'package:examen1136/inicio.dart';
 import 'package:flutter/material.dart';
+import 'package:examen1136/pagina_Container.dart';
+import 'package:examen1136/pagina_AnimatedAlign.dart';
+import 'package:examen1136/pagina_FractionalTranslation.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MiExamen());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class MiExamen extends StatelessWidget {
+  const MiExamen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      title: 'Entre Paginas Routes',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const PantallaUno(),
+        '/MyAnimatedAlign': (context) => MyAnimatedAlign(),
+        '/MyContainer': (context) => const MyContainer(),
+        '/MyTabBar': (context) => const MyTabBar(),
+        '/MyDrawerHeader': (context) => const MyDrawerHeader(),
+        '/MyFractionalTranslation': (context) =>
+            const MyFractionalTranslation(),
+      },
     );
   }
 }
